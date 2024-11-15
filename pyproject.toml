@@ -1,0 +1,14 @@
+[project]
+name = "MorningSummary"
+version = "0.1.0"
+description = "A daily paper printout of digital information"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[project.scripts]
+morningsummary = "morningsummary:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
