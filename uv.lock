@@ -51,6 +51,7 @@ dependencies = [
     { name = "oura-ring" },
     { name = "python-dotenv" },
     { name = "requests" },
+    { name = "things-py" },
 ]
 
 [package.metadata]
@@ -58,6 +59,7 @@ requires-dist = [
     { name = "oura-ring", specifier = ">=0.3.0" },
     { name = "python-dotenv", specifier = ">=1.0.1" },
     { name = "requests", specifier = ">=2.32.3" },
+    { name = "things-py", specifier = ">=0.0.15" },
 ]
 
 [[package]]
@@ -94,6 +96,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz", hash = "sha256:55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760", size = 131218 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/f9/9b/335f9764261e915ed497fcdeb11df5dfd6f7bf257d4a6a2a686d80da4d54/requests-2.32.3-py3-none-any.whl", hash = "sha256:70761cfe03c773ceb22aa2f671b4757976145175cdfca038c02654d061d6dcc6", size = 64928 },
+]
+
+[[package]]
+name = "things-py"
+version = "0.0.15"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/09/bf/dbba75d9a4e38de0d91dff8b1d0aacd754df4080d7c17eae3a1640a4d17f/things.py-0.0.15.tar.gz", hash = "sha256:95ee8602083cf8b9fde59f64486fa6f3d13b1f84bd565c60dd77599c07e7ea16", size = 27476 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b4/a3/97c7e8a2b9ab527cef9c31b74d88d730e4ba539bf6e9743522f9b7584122/things.py-0.0.15-py3-none-any.whl", hash = "sha256:5c75e7f35eb6e9558fa937bfa0b7563f5dc3b726adade836131e572a15c47a0d", size = 26671 },
 ]
 
 [[package]]
