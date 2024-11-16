@@ -1,2 +1,6 @@
+from morningsummary.header import title, subtitle
+
+
 def main() -> None:
-    print("Hello world!")
+    print(title())
+    print(subtitle())

@@ -4,7 +4,11 @@ version = "0.1.0"
 description = "A daily paper printout of digital information"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "oura-ring>=0.3.0",
+    "python-dotenv>=1.0.1",
+    "requests>=2.32.3",
+]
 
 [project.scripts]
 morningsummary = "morningsummary:main"
