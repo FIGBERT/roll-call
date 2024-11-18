@@ -27,4 +27,4 @@ For more on the design, see `NOTEBOOK.pdf`.
 
 [DESIGN11]: https://explorecourses.stanford.edu/search?q=DESIGN11
 [Todos]: https://github.com/thingsapi/things.py
-[Oura stats]: https://github.com/turing-complet/python-ouraring
+[Oura stats]: https://github.com/hedgertronic/oura-ring
