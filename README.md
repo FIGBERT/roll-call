@@ -16,14 +16,14 @@ For more on the design, see `NOTEBOOK.pdf`.
 
 ## Capabilities
 
-- [ ] Day of the week
-- [ ] Date
+- [X] Day of the week
+- [X] Date
 - [ ] Unread texts
-- [ ] [Todos]
-- [ ] Calendar
+- [X] [Todos]
+- [X] Calendar
 - [ ] Gym day
-- [ ] [Oura stats]
-- [ ] Weather
+- [X] [Oura stats]
+- [X] Weather
 
 [DESIGN11]: https://explorecourses.stanford.edu/search?q=DESIGN11
 [Todos]: https://github.com/thingsapi/things.py
