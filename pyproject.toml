@@ -5,6 +5,8 @@ description = "A daily paper printout of digital information"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "caldav>=1.4.0",
+    "icalendar>=6.0.1",
     "oura-ring>=0.3.0",
     "python-dotenv>=1.0.1",
     "requests>=2.32.3",
