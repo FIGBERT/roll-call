@@ -3,6 +3,8 @@ from datetime import datetime, date, time, timedelta
 from typing import Final
 from imessage_reader import fetch_data
 
+import applescript
+
 APPLE_DATE_FORMAT: Final[str] = "%Y-%m-%d %H:%M:%S"
 
 
@@ -14,7 +16,7 @@ def messages() -> str:
     grouped = group_messages(messages)
 
     for sender in grouped:
-        text += f"{sender}\n"
+        text += f"{contacts_lookup(sender)}\n"
         for msg in grouped[sender]:
             text += f"\t{msg[1]}\n"
 
@@ -55,3 +57,38 @@ def group_messages(messages: list) -> dict[str, list[str]]:
             out[msg[0]] = [msg]
 
     return out
+
+
+def contacts_lookup(num: str) -> str:
+    num = "".join([n for n in num if n.isdigit()])
+
+    APPLESCRIPT = f"""
+    tell application "Contacts"
+    set allContacts to every person
+
+    repeat with aContact in allContacts
+        set phoneNumbers to value of every phone of aContact
+        repeat with aPhoneNumber in phoneNumbers
+            set normalizedNumber to ""
+            repeat with i from 1 to length of aPhoneNumber
+                set char to character i of aPhoneNumber
+                if char is in "0123456789" then
+                    set normalizedNumber to normalizedNumber & char
+                end if
+            end repeat
+            if normalizedNumber is equal to "{num}" then
+                return name of aContact
+            end if
+            end repeat
+        end repeat
+    end tell
+
+    return ""
+    """
+
+    name = applescript.run(APPLESCRIPT).out
+
+    if name == "":
+        return num
+    else:
+        return name
