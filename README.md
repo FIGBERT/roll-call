@@ -18,7 +18,7 @@ For more on the design, see `NOTEBOOK.pdf`.
 
 - [X] Day of the week
 - [X] Date
-- [ ] Unread texts
+- [X] Unread texts
 - [X] [Todos]
 - [X] Calendar
 - [ ] Gym day
