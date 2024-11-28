@@ -11,6 +11,7 @@ dependencies = [
     "imessage-reader",
     "oura-ring>=0.3.0",
     "python-dotenv>=1.0.1",
+    "python-escpos[usb]>=3.1",
     "requests>=2.32.3",
     "things-py>=0.0.15",
 ]
