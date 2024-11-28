@@ -1,10 +1,10 @@
+from datetime import date, datetime, time, timedelta
 from os import path
-from datetime import datetime, date, time, timedelta
 from typing import Final
-from imessage_reader import fetch_data
-from escpos.printer import Usb
 
 import applescript
+from escpos.printer import Usb
+from imessage_reader import fetch_data
 
 APPLE_DATE_FORMAT: Final[str] = "%Y-%m-%d %H:%M:%S"
 

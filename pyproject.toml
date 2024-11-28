@@ -25,3 +25,6 @@ build-backend = "hatchling.build"
 
 [tool.uv.sources]
 imessage-reader = { git = "https://github.com/figbert/imessage_reader.git" }
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "W", "C901", "I"]

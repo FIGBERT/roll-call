@@ -1,6 +1,8 @@
 import os
-import caldav, icalendar
-from datetime import date, time, datetime, timedelta
+from datetime import date, datetime, time, timedelta
+
+import caldav
+import icalendar
 from dotenv import load_dotenv
 from escpos.printer import Usb
 

@@ -1,8 +1,9 @@
 import os
-import requests
-from oura_ring import OuraClient
 from datetime import date
+
+import requests
 from dotenv import load_dotenv
+from oura_ring import OuraClient
 
 
 def title() -> str:

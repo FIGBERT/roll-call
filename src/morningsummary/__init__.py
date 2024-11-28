@@ -1,8 +1,9 @@
-from morningsummary.header import title, subtitle
-from morningsummary.todos import todos
-from morningsummary.events import events
-from morningsummary.messages import messages
 from escpos.printer import Usb
+
+from morningsummary.events import events
+from morningsummary.header import subtitle, title
+from morningsummary.messages import messages
+from morningsummary.todos import todos
 
 
 def main() -> None:
