@@ -24,6 +24,7 @@ def events(printer: Usb) -> None:
     printer.set(normal_textsize=True)
 
     evs: list[SummaryEvent] = []
+    all_day_evs: list[str] = []
 
     _ = load_dotenv()
     CALENDAR_URL = os.getenv("CALENDAR_URL") or ""
@@ -50,17 +51,22 @@ def events(printer: Usb) -> None:
                 ics = icalendar.Event.from_ical(event.data)
                 for component in ics.walk():
                     if component.name == "VEVENT":
-                        evs.append(
-                            SummaryEvent(
-                                component.get("summary"),
-                                component.get("dtstart").dt,
-                                component.get("dtend").dt,
-                            )
-                        )
+                        name = component.get("summary")
+                        start = component.get("dtstart").dt
+                        end = component.get("dtend").dt
+
+                        if type(start) is date or type(end) is date:
+                            all_day_evs.append(name)
+                        else:
+                            evs.append(SummaryEvent(name, start, end))
+
                         continue
 
+    all_day_evs.sort()
     evs.sort(key=lambda ev: ev.start)
 
+    for ev in all_day_evs:
+        printer.textln(f"All Day     {ev}")
     for ev in evs:
         printer.textln(
             f"{ev.start.strftime("%H:%M")}-{ev.end.strftime("%H:%M")} {ev.name}"
