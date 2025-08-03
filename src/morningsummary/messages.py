@@ -3,25 +3,22 @@ from os import path
 from typing import Final
 
 import applescript
-from escpos.printer import Usb
 from imessage_reader import fetch_data
+
+from cat import CatPrinter
 
 APPLE_DATE_FORMAT: Final[str] = "%Y-%m-%d %H:%M:%S"
 
 
-def messages(printer: Usb) -> None:
-    printer.set(bold=True, double_width=False, double_height=True)
-    printer.textln("MESSAGES")
-    printer.set(normal_textsize=True)
+def messages(printer: CatPrinter) -> None:
+    printer.textln("MESSAGES", size=2, bold=True)
 
     db = fetch_data.FetchData(path.expanduser("~/Library/Messages/chat.db"))
     messages = filter_messages(db.get_messages())
     grouped = group_messages(messages)
 
     for sender in grouped:
-        printer.set(underline=2)
-        printer.textln(contacts_lookup(sender))
-        printer.set(underline=0)
+        printer.textln(contacts_lookup(sender), underline=True)
         for msg in grouped[sender]:
             printer.textln(msg[1])
 

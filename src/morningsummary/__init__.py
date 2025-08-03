@@ -1,5 +1,6 @@
-from escpos.printer import Usb
+import asyncio
 
+from cat import CatPrinter
 from morningsummary.events import events
 from morningsummary.header import subtitle, title
 from morningsummary.messages import messages
@@ -7,21 +8,13 @@ from morningsummary.todos import todos
 
 
 def main() -> None:
-    p = Usb(0x04B8, 0x0E28)
+    p = CatPrinter()
 
-    p.set(align="center", font="b", bold=True, custom_size=True, width=4, height=4)
-    p.textln(title())
+    p.textln(title(), size=4, bold=True, centered=True)
+    p.textln(subtitle(), size=2, centered=True)
 
-    p.set(normal_textsize=True)
-    p.set(double_height=True, double_width=True)
-    p.textln(subtitle())
-
-    p.set(align="left", normal_textsize=True)
     messages(p)
-    p.ln()
-
     todos(p)
-    p.ln()
-
     events(p)
-    p.cut()
+
+    asyncio.run(p.cut())

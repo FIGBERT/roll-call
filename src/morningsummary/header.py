@@ -21,7 +21,7 @@ def subtitle() -> str:
     weather_data = weather_request.json()["weather"]
     for day in weather_data:
         if day["date"] == today:
-            weather = f"{day["maxtempC"]}°/{day["mintempC"]}°"
+            weather = f"{day['maxtempC']}C/{day['mintempC']}C"
 
     _ = load_dotenv()
     OURA_PERSONAL_ACCESS_TOKEN = os.getenv("OURA_PERSONAL_ACCESS_TOKEN") or ""
@@ -31,4 +31,4 @@ def subtitle() -> str:
     readiness = oura.get_daily_readiness(start_date=today)
     readiness_score = readiness[0]["score"] if len(readiness) > 0 else "N/A"
 
-    return f"{dt}\n{weather} • {sleep_score} • {readiness_score}\n"
+    return f"{dt}\n{weather} | {sleep_score} | {readiness_score}\n"

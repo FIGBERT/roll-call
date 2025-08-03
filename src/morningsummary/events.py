@@ -4,7 +4,8 @@ from datetime import date, datetime, time, timedelta
 import caldav
 import icalendar
 from dotenv import load_dotenv
-from escpos.printer import Usb
+
+from cat import CatPrinter
 
 
 class SummaryEvent:
@@ -18,10 +19,8 @@ class SummaryEvent:
         self.end = end
 
 
-def events(printer: Usb) -> None:
-    printer.set(bold=True, double_width=False, double_height=True)
-    printer.textln("CALENDAR")
-    printer.set(normal_textsize=True)
+def events(printer: CatPrinter) -> None:
+    printer.textln("CALENDAR", size=2, bold=True)
 
     evs: list[SummaryEvent] = []
     all_day_evs: list[str] = []
@@ -69,5 +68,5 @@ def events(printer: Usb) -> None:
         printer.textln(f"All Day     {ev}")
     for ev in evs:
         printer.textln(
-            f"{ev.start.strftime("%H:%M")}-{ev.end.strftime("%H:%M")} {ev.name}"
+            f"{ev.start.strftime('%H:%M')}-{ev.end.strftime('%H:%M')} {ev.name}"
         )

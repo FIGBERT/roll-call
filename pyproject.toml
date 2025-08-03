@@ -6,9 +6,11 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "applescript>=2021.2.9",
+    "bleak>=1.0.1",
     "caldav>=1.4.0",
     "icalendar>=6.0.1",
     "imessage-reader",
+    "opencv-python>=4.12.0.88",
     "oura-ring>=0.3.0",
     "python-dotenv>=1.0.1",
     "python-escpos[usb]>=3.1",
