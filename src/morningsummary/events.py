@@ -3,9 +3,8 @@ from datetime import date, datetime, time, timedelta
 
 import caldav
 import icalendar
+from bleprinter import Printer
 from dotenv import load_dotenv
-
-from cat import CatPrinter
 
 
 class SummaryEvent:
@@ -19,7 +18,7 @@ class SummaryEvent:
         self.end = end
 
 
-def events(printer: CatPrinter) -> None:
+def events(printer: Printer) -> None:
     printer.textln("CALENDAR", size=2, bold=True)
 
     evs: list[SummaryEvent] = []

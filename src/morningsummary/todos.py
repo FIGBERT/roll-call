@@ -1,9 +1,8 @@
 import things
+from bleprinter import Printer
 
-from cat import CatPrinter
 
-
-def todos(printer: CatPrinter) -> None:
+def todos(printer: Printer) -> None:
     printer.textln("TODOS", size=2, bold=True)
 
     tasks = things.today()

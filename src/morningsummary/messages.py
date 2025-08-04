@@ -3,14 +3,13 @@ from os import path
 from typing import Final
 
 import applescript
+from bleprinter import Printer
 from imessage_reader import fetch_data
-
-from cat import CatPrinter
 
 APPLE_DATE_FORMAT: Final[str] = "%Y-%m-%d %H:%M:%S"
 
 
-def messages(printer: CatPrinter) -> None:
+def messages(printer: Printer) -> None:
     printer.textln("MESSAGES", size=2, bold=True)
 
     db = fetch_data.FetchData(path.expanduser("~/Library/Messages/chat.db"))
